@@ -104,7 +104,7 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				<FontString name="TargetLabel" inherits="GameFontNormal" text="Add Class">
+				<FontString name="TargetLabelClass" inherits="GameFontNormal" text="Add Class">
 					<Size x="260" y="20" />
 					<Anchors>
 						<Anchor point="CENTER" relativePoint="TOP">
@@ -124,7 +124,7 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				<FontString name="TargetLabel" inherits="GameFontNormal" text="Bot Formation (Optional Placement)">
+				<FontString name="TargetLabelFormation" inherits="GameFontNormal" text="Bot Formation (Optional Placement)">
 					<Size x="260" y="20" />
 					<Anchors>
 						<Anchor point="CENTER" relativePoint="TOP">
@@ -343,7 +343,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="CmdAttack" inherits="UIPanelButtonTemplate" text="DPS Attack">
+			<Button name="CmdDPSAttack" inherits="UIPanelButtonTemplate" text="DPS Attack">
 				<Size x="80" y="30" />
 				<Anchors>
 					<Anchor point="TOP">

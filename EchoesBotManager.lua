@@ -48,6 +48,23 @@ function PlayerbotManager_Init()
     if SelectedFormationText then
         SelectedFormationText:SetText(PlayerbotManagerDB.selectedFormation)
     end
+
+    -- Restore minimap button position (if it exists)
+    if PlayerbotManagerButtonFrame and PlayerbotManagerDB and PlayerbotManagerDB.buttonPos then
+        local pos = PlayerbotManagerDB.buttonPos
+        if type(pos.x) == "number" and type(pos.y) == "number" then
+            PlayerbotManagerButtonFrame:ClearAllPoints()
+            PlayerbotManagerButtonFrame:SetPoint("TOPLEFT", Minimap, "TOPLEFT", pos.x, pos.y)
+        end
+        PlayerbotManagerButtonFrame:Show()
+    end
+end
+
+-- Slash command fallback (in case the minimap button is hidden by UI mods)
+SLASH_ECHOESBOTMANAGER1 = "/ebm"
+SLASH_ECHOESBOTMANAGER2 = "/echoesbotmanager"
+SlashCmdList["ECHOESBOTMANAGER"] = function()
+    PlayerbotManagerButtonFrame_OnClick()
 end
 
 function PlayerbotManagerButtonFrame_BeingDragged()
