@@ -60,11 +60,24 @@ function PlayerbotManager_Init()
     end
 end
 
+function PlayerbotManager_Toggle()
+    if not PlayerbotManagerFrame then
+        print("PlayerbotManager: Error - Control frame not found!")
+        return
+    end
+
+    if PlayerbotManagerFrame:IsVisible() then
+        PlayerbotManagerFrame:Hide()
+    else
+        PlayerbotManagerFrame:Show()
+    end
+end
+
 -- Slash command fallback (in case the minimap button is hidden by UI mods)
 SLASH_ECHOESBOTMANAGER1 = "/ebm"
 SLASH_ECHOESBOTMANAGER2 = "/echoesbotmanager"
 SlashCmdList["ECHOESBOTMANAGER"] = function()
-    PlayerbotManagerButtonFrame_OnClick()
+    PlayerbotManager_Toggle()
 end
 
 function PlayerbotManagerButtonFrame_BeingDragged()
@@ -82,15 +95,7 @@ function PlayerbotManagerButtonFrame_BeingDragged()
 end
 
 function PlayerbotManagerButtonFrame_OnClick()
-    if PlayerbotManagerFrame then
-        if PlayerbotManagerFrame:IsVisible() then
-            PlayerbotManagerFrame:Hide()
-        else
-            PlayerbotManagerFrame:Show()
-        end
-    else
-        print("PlayerbotManager: Error - Control frame not found!")
-    end
+    PlayerbotManager_Toggle()
 end
 
 function PlayerbotManagerButtonFrame_OnEnter()
