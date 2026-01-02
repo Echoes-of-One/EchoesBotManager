@@ -1,0 +1,10 @@
+## Interface: 30300
+## Title: Echoes Bot Manager
+## Notes: A simple addon for managing bots on Echoes of One
+## Author: Valleriaa
+## Version: 1.0
+## SavedVariables: PlayerbotManagerDB
+
+Bindings.xml
+EchoesBotManager.xml
+EchoesBotManager.lua
