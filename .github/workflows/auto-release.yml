@@ -1,0 +1,34 @@
+name: Auto Release (Lua + TOC only)
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create release archive
+        run: |
+          mkdir -p dist
+          zip -j dist/EchoesBotManager.zip *.lua *.toc
+
+      - name: Create or update GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Latest Update
+          body: This release contains only the Lua and TOC files.
+          makeLatest: true
+          allowUpdates: true
+          replacesArtifacts: true
+          removeArtifacts: true
+          artifacts: dist/EchoesBotManager.zip
