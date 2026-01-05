@@ -1,4 +1,4 @@
-name: Auto Release (Lua + TOC only)
+name: Auto Release (Lua + TOC + XML)
 
 on:
   push:
@@ -19,14 +19,14 @@ jobs:
       - name: Create release archive
         run: |
           mkdir -p dist
-          zip -j dist/EchoesBotManager.zip *.lua *.toc
+          zip -j dist/EchoesBotManager.zip *.lua *.toc *.xml
 
       - name: Create or update GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: latest
           name: Latest Update
-          body: This release contains only the Lua and TOC files.
+          body: This release contains the Lua, TOC, and XML files.
           makeLatest: true
           allowUpdates: true
           replacesArtifacts: true
